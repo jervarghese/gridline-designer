@@ -193,5 +193,11 @@
     });
   });
 
+  /* ---------- Image-saving deterrents ---------- */
+  // Block the right-click menu and dragging on photos only; text stays selectable.
+  function isPhotoArea(el) { return el && el.closest && el.closest(".gallery, .lightbox, .hero"); }
+  document.addEventListener("contextmenu", function (e) { if (isPhotoArea(e.target)) e.preventDefault(); });
+  document.addEventListener("dragstart", function (e) { if (isPhotoArea(e.target)) e.preventDefault(); });
+
   document.getElementById("year").textContent = new Date().getFullYear();
 })();

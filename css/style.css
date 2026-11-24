@@ -169,6 +169,14 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; mar
 .lb-next { right: 10px; top: 50%; transform: translateY(-50%); }
 body.no-scroll { overflow: hidden; }
 
+/* Image-saving deterrents: no drag, no selection, no long-press menu.
+   Images ignore the pointer, so clicks and right-clicks land on the frame instead. */
+.gallery-item img, .lightbox img {
+  -webkit-user-drag: none; user-select: none; -webkit-user-select: none;
+  -webkit-touch-callout: none; pointer-events: none;
+}
+.gallery-item, .lightbox figure { -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
+
 /* Responsive */
 @media (max-width: 900px) {
   .principles { grid-template-columns: 1fr; }
